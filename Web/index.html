@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Noto Sans TC", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 首頁 */
+        .container {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 40px;
+            padding: 48px;
+            align-items: center;      /* ⭐上下置中 */
+            /*justify-items: center;    /* ⭐左右置中 */
+        }
+
+        /* 左邊照片 */
+        .photo {
+            background-color: #111;
+             overflow: hidden;
+            border: 1px solid #222;
+
+             width: 600px;     /* 控制寬 */
+             height: 800px;    /* 控制高 */
+
+             margin: auto;
+        }
+
+        .photo img {
+             width: 100%;
+             height: 100%;
+            object-fit: cover;
+        }
+
+        /* 右邊按鈕區 */
+        .menu {
+            display: grid;
+            grid-template-rows: 1fr 1fr auto;
+            gap: 24px;
+        }
+
+        .card {
+            border: 1px solid #2f2f2f;
+            background-color: #111;
+            padding: 32px;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background-color: #f2f2f2;
+            color: #000;
+            transform: translateY(-4px);
+            border-color: #666;
+        }
+
+        .card h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #bdbdbd;
+            transition: color 0.3s ease;
+        }
+
+        .card:hover p {
+            color: #444;
+        }
+
+        /* 下方三格 */
+        .social {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .small-card {
+            border: 1px solid #2f2f2f;
+            background-color: #111;
+            min-height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .small-card:hover {
+            background-color: #f2f2f2;
+            color: #000;
+            transform: translateY(-4px);
+            border-color: #666;
+        }
+
+        /* 下面內容區塊 */
+        .section {
+            min-height: 100vh;
+            padding: 80px 48px;
+            border-top: 1px solid #222;
+        }
+
+        .section h1 {
+            font-size: 40px;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .section p {
+            max-width: 800px;
+            font-size: 18px;
+            line-height: 1.9;
+            color: #d6d6d6;
+        }
+
+        /* RWD */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .photo {
+                min-height: 360px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container,
+            .section {
+                padding: 24px;
+            }
+
+            .social {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                min-height: 140px;
+                padding: 24px;
+            }
+
+            .card h2 {
+                font-size: 24px;
+            }
+
+            .section h1 {
+                font-size: 30px;
+            }
+
+            .section p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 首頁 -->
+    <div class="container">
+        <!-- 左邊照片 -->
+        <div class="photo">
+            <img src="me.jfif" alt="個人照片">
+        </div>
+
+        <!-- 右邊按鈕 -->
+        <div class="menu">
+            <a href="#about">
+                <div class="card">
+                    <h2>自我介紹</h2>
+                    <p>點擊查看我的基本介紹、個人特質與學習方向。</p>
+                </div>
+            </a>
+
+            <a href="#resume">
+                <div class="card">
+                    <h2>自傳 / 履歷</h2>
+                    <p>點擊查看我的學歷背景、技能整理與個人經歷。</p>
+                </div>
+            </a>
+
+            <div class="social">
+                <a href="https://instagram.com" target="_blank">
+                    <div class="small-card">IG</div>
+                </a>
+                <a href="https://facebook.com" target="_blank">
+                    <div class="small-card">FB</div>
+                </a>
+                <a href="#">
+                    <div class="small-card">More</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 自我介紹 -->
+    <div id="about" class="section">
+        <h1>自我介紹</h1>
+        <p>
+            我是一名對資訊管理領域充滿興趣的學生，具備基本的程式設計與網頁開發能力，
+            並持續學習新技術來提升自己。
+        </p>
+    </div>
+
+    <!-- 自傳 / 履歷 -->
+    <div id="resume" class="section">
+        <h1>自傳 / 履歷</h1>
+        <p>
+            學歷：XXX大學 資訊管理系<br>
+            技能：Python、HTML、CSS、JavaScript<br>
+            經驗：完成多項課堂專案與個人網站開發。
+        </p>
+    </div>
+
+</body>
+</html>
