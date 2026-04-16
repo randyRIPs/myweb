@@ -4,294 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>羅翊綸的網站</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Noto Sans TC", sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: #000;
-            color: #fff;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* 首頁 */
-        .container {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1.1fr;
-            gap: 40px;
-            padding: 48px;
-            align-items: center;
-        }
-
-        /* 左邊照片 */
-        .photo {
-            width: 100%;
-            max-width: 600px;
-            height: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            border: 1px solid #222;
-            background-color: #111;
-        }
-
-        .photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* 右邊按鈕區 */
-        .menu {
-            display: grid;
-            grid-template-rows: 1fr 1fr auto;
-            gap: 24px;
-        }
-
-        .card {
-            border: 1px solid #2f2f2f;
-            background-color: #111;
-            padding: 32px;
-            min-height: 180px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            background-color: #f2f2f2;
-            color: #000;
-            transform: translateY(-4px);
-            border-color: #666;
-        }
-
-        .card h2 {
-            font-size: 28px;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .card p {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #bdbdbd;
-            transition: color 0.3s ease;
-        }
-
-        .card:hover p {
-            color: #444;
-        }
-
-        /* 下方三格社群按鈕 */
-        .social {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-
-        .small-card {
-            border: 1px solid #2f2f2f;
-            background-color: #111;
-            min-height: 110px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            font-size: 18px;
-        }
-
-        .small-card:hover {
-            background-color: #f2f2f2;
-            color: #000;
-            transform: translateY(-4px);
-            border-color: #666;
-        }
-
-        /* 內容區塊 */
-        .section {
-            min-height: 100vh;
-            padding: 80px 48px;
-            border-top: 1px solid #222;
-            background-color: #000;
-        }
-
-        /* 三欄介紹 */
-        .about-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            align-items: start;
-        }
-
-        .about-card {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .about-card img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            display: block;
-            margin: 0 auto 20px auto;
-            border-radius: 20px;
-            background-color: #111;
-        }
-
-        .about-card h2 {
-            font-size: 42px;
-            font-weight: 400;
-            margin-bottom: 20px;
-            color: #777;
-        }
-
-        .about-card p {
-            max-width: 360px;
-            margin: 0 auto;
-            font-size: 18px;
-            line-height: 1.9;
-            color: #777;
-        }
-
-        /* 履歷區 */
-        .resume-box {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .resume-box h1 {
-            font-size: 40px;
-            margin-bottom: 24px;
-            font-weight: 700;
-        }
-
-        .resume-box p {
-            font-size: 18px;
-            line-height: 1.9;
-            color: #d6d6d6;
-        }
-
-        /* 回到最上面 */
-        .back-to-top {
-            position: fixed;
-            right: 24px;
-            bottom: 24px;
-            width: 52px;
-            height: 52px;
-            background-color: #111;
-            color: #fff;
-            border: 1px solid #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            transition: 0.3s;
-            z-index: 999;
-        }
-
-        .back-to-top:hover {
-            background-color: #fff;
-            color: #000;
-            border-color: #666;
-            transform: translateY(-4px);
-        }
-
-        /* 平板 */
-        @media (max-width: 900px) {
-            .container {
-                grid-template-columns: 1fr;
-                padding: 32px;
-            }
-
-            .photo {
-                max-width: 500px;
-                height: 600px;
-            }
-
-            .about-container {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-
-            .about-card {
-                margin-bottom: 10px;
-            }
-        }
-
-        /* 手機 */
-        @media (max-width: 600px) {
-            .container,
-            .section {
-                padding: 24px;
-            }
-
-            .photo {
-                max-width: 100%;
-                height: 420px;
-            }
-
-            .card {
-                min-height: 140px;
-                padding: 24px;
-            }
-
-            .card h2 {
-                font-size: 24px;
-            }
-
-            .social {
-                grid-template-columns: 1fr;
-            }
-
-            .small-card {
-                min-height: 80px;
-                font-size: 16px;
-            }
-
-            .about-card img {
-                width: 120px;
-                height: 120px;
-            }
-
-            .about-card h2 {
-                font-size: 30px;
-            }
-
-            .about-card p,
-            .resume-box p {
-                font-size: 16px;
-            }
-
-            .resume-box h1 {
-                font-size: 30px;
-            }
-
-            .back-to-top {
-                width: 46px;
-                height: 46px;
-                font-size: 20px;
-                right: 16px;
-                bottom: 16px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -311,7 +24,7 @@
                 </div>
             </a>
 
-            <a href="#resume">
+            <a href="resume.html">
                 <div class="card">
                     <h2>自傳 / 履歷</h2>
                     <p>點擊查看我的學歷背景、技能整理與個人經歷。</p>
@@ -324,7 +37,7 @@
                 </a>
 
                 <a href="https://www.threads.com/@oyilum1015?igshid=NTc4MTIwNjQ2YQ==" target="_blank">
-                    <div class="small-card">FB</div>
+                    <div class="small-card">Threads</div>
                 </a>
 
                 <a href="#about">
@@ -344,18 +57,17 @@
                     我是翊綸，目前就讀靜宜大學資管系，是一位延畢生。
                     出生在一個小的城市嘉義市，因為嘉義市真的很小，
                     所以從小就養成了騎車到處跑的習慣，充滿好奇心喜歡學習探索新事物，
-                    最喜歡吃的東西是甜甜圈跟蒸蛋!
+                    最喜歡吃的東西是甜甜圈跟蒸蛋！
                 </p>
             </div>
 
             <div class="about-card">
-                <img src="lure.jpeg" alt="選擇圖片">
+                <img src="lure.jpeg" alt="休閒興趣圖片">
                 <h2>休閒興趣</h2>
                 <p>
                     路亞釣魚是我最喜歡的休閒興趣，喜歡沒有計畫的探點，
-                    背上釣竿一個腰包一台車和一個人，在台中這個都市裡，尋找靜謐的小溪流，
-                    讓從慢步調的嘉義來到台中的我能夠短暫的停下，重新掌握生活的步調。
-
+                    背上釣竿、一個腰包、一台車和一個人，在台中這個都市裡，尋找靜謐的小溪流，
+                    讓從慢步調的嘉義來到台中的我能夠短暫停下，重新掌握生活的步調。
                 </p>
             </div>
 
@@ -363,27 +75,13 @@
                 <img src="mis.jpg" alt="未來規劃圖片">
                 <h2>未來規劃</h2>
                 <p>
-                    在大五的這年，多了很多時間來尋找未來的出入，我喜歡大學李資訊管理系帶給我的樂趣，
-                    不管是畢業專題還是個個課程中的網頁設計，都讓我沉迷在一步步堆砌出心中所想的藍圖中，
-                    在未來的三年內，我會朝著進入業界累積經驗以及作品的方向前進，並且掌握未來AI產業的趨勢，不斷精進自己保持好奇心，
+                    在大五的這年，多了很多時間來尋找未來的出路，我喜歡資訊管理系帶給我的樂趣，
+                    不管是畢業專題還是課程中的網頁設計，都讓我沉迷在一步步堆砌出心中所想的藍圖中。
+                    在未來的三年內，我會朝著進入業界累積經驗以及作品的方向前進，
+                    並掌握 AI 產業的趨勢，不斷精進自己、保持好奇心，
                     讓自己能夠跟上日新月異的科技產業。
-
                 </p>
             </div>
-        </div>
-    </div>
-
-    <!-- 履歷 -->
-    <div id="resume" class="section">
-        <div class="resume-box">
-            <h1>自傳 / 履歷</h1>
-            <p>
-                學歷：資訊管理相關科系<br>
-                技能：Python、HTML、CSS、JavaScript<br>
-                經驗：完成多項課堂專案與個人網站開發，並持續學習前端設計與程式實作。<br><br>
-                我希望未來能在資訊相關領域持續發展，透過不斷學習與累積作品，
-                強化自己的技術能力與問題解決能力，朝更完整的個人作品集邁進。
-            </p>
         </div>
     </div>
 
